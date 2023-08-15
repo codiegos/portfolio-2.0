@@ -1,3 +1,7 @@
+import { AiFillGithub, AiFillLinkedin, AiOutlineWhatsApp } from 'react-icons/ai'
+import { BiLogoGmail } from 'react-icons/bi'
+import { PiInstagramLogo, PiMicrosoftOutlookLogoDuotone } from 'react-icons/pi'
+
 export const links = [
   {
     name: 'Home',
@@ -14,6 +18,57 @@ export const links = [
   {
     name: 'Contact',
     hash: '#contact',
+  },
+] as const
+
+export const socialMedias = [
+  {
+    id: 1,
+    name: 'GitHub',
+    link: 'https://github.com/codiegos',
+    icon: AiFillGithub,
+    color: '#fff',
+    clipboardCopy: 'https://github.com/codiegos',
+  },
+  {
+    id: 2,
+    name: 'LinkedIn',
+    link: 'https://www.linkedin.com/in/codiegos/',
+    icon: AiFillLinkedin,
+    color: '#0A66C2',
+    clipboardCopy: 'https://www.linkedin.com/in/codiegos/',
+  },
+  {
+    id: 3,
+    name: 'Email',
+    link: 'mailto:diegosebsk@gmail.com',
+    icon: BiLogoGmail,
+    color: '#EA4335',
+    clipboardCopy: 'diegosebsk@gmail.com',
+  },
+  {
+    id: 4,
+    name: 'Outlook',
+    link: 'mailto:codiegos@outlook.com',
+    icon: PiMicrosoftOutlookLogoDuotone,
+    color: '#097CD5',
+    clipboardCopy: 'codiegos@outlook.com',
+  },
+  {
+    id: 5,
+    name: 'Instagram',
+    link: 'https://www.instagram.com/blind.cloud/',
+    icon: PiInstagramLogo,
+    color: '#C6379C',
+    clipboardCopy: 'https://www.instagram.com/blind.cloud/',
+  },
+  {
+    id: 6,
+    name: 'WhatsApp',
+    link: 'https://wa.me/56935553072',
+    icon: AiOutlineWhatsApp,
+    color: '#25D366',
+    clipboardCopy: '+56935553072',
   },
 ] as const
 
