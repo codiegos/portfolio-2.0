@@ -3,7 +3,7 @@ function Form() {
     <form
       method='POST'
       action='https://herotofu.com/start'
-      className='flex w-full flex-col gap-6'
+      className='flex w-full flex-col gap-6 sm:text-lg'
     >
       <label>
         Your name
@@ -35,9 +35,9 @@ function Form() {
       </label>
       <button
         type='submit'
-        className='rounded-lg bg-violet-800 p-2.5 px-5 outline-none transition-colors duration-150 hover:bg-violet-700 active:scale-95'
+        className='rounded-lg bg-violet-800 p-2.5 px-5 outline-none transition duration-200 hover:bg-violet-700 active:scale-95'
       >
-        Contact Us
+        Send
       </button>
     </form>
   )

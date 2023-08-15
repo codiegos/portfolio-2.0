@@ -12,7 +12,7 @@ interface ProjectCardProps {
 
 function ProjectCard({ name, image, tags, github, link }: ProjectCardProps) {
   return (
-    <article className='flex max-w-sm flex-col overflow-hidden rounded-lg bg-gradient-to-br from-violet-500/40 to-primary ring-2 ring-violet-700/50'>
+    <article className='flex max-w-md flex-col overflow-hidden rounded-lg bg-gradient-to-br from-violet-500/40 to-primary ring-2 ring-violet-700/50'>
       <Image
         src={image}
         alt={name}
@@ -40,7 +40,7 @@ function ProjectCard({ name, image, tags, github, link }: ProjectCardProps) {
         <div className='mt-4 flex items-center justify-end gap-4'>
           {github ? (
             <a href={github} target='_blank'>
-              <AiFillGithub className='h-6 w-6' />
+              <AiFillGithub className='h-6 w-6 duration-150 hover:scale-110' />
             </a>
           ) : (
             <AiFillLock className='h-6 w-6 text-red-400' />
@@ -48,7 +48,7 @@ function ProjectCard({ name, image, tags, github, link }: ProjectCardProps) {
 
           {link && (
             <a href={link} target='_blank'>
-              <AiOutlineLink className='h-6 w-6 text-sky-400' />
+              <AiOutlineLink className='h-6 w-6 text-sky-400 duration-150 hover:scale-110' />
             </a>
           )}
         </div>
