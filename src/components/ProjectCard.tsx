@@ -12,32 +12,32 @@ interface ProjectCardProps {
 
 function ProjectCard({ name, image, tags, github, link }: ProjectCardProps) {
   return (
-    <article className='flex max-w-md flex-col overflow-hidden rounded-lg bg-gradient-to-br from-violet-500/40 to-primary ring-2 ring-violet-700/50'>
+    <article className='relative flex max-w-xl flex-col overflow-hidden rounded-lg bg-secondary/10 ring-2 ring-violet-700/50'>
       <Image
         src={image}
         alt={name}
-        className='h-64 w-full object-cover duration-200 hover:scale-105'
+        className='h-auto w-full object-cover duration-200 hover:scale-105'
         width={500}
         height={500}
       />
 
-      <div className='gap.4 flex flex-col gap-4 px-6 py-4 sm:gap-12 lg:gap-4'>
-        <h3 className='text-2xl font-semibold'>
+      <div className='flex flex-col gap-2 p-2 pb-10'>
+        <h3 className='text-xl font-semibold lg:text-2xl'>
           <GradientText
             text={name}
-            className='bg-gradient-to-b from-white  to-sky-200'
+            className='bg-gradient-to-b from-white to-sky-100'
           />
         </h3>
-        <ul className='flex h-12 flex-wrap gap-2'>
+        <ul className='flex flex-wrap gap-2'>
           {tags.map((tag, i) => (
             <div key={i}>
-              <li className='rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 p-2.5 text-sm ring-2 ring-violet-800'>
+              <li className='rounded-full bg-gradient-to-tr from-pink-600 to-pink-400 p-1.5 text-[.9rem] ring-2 ring-pink-700'>
                 {tag}
               </li>
             </div>
           ))}
         </ul>
-        <div className='mt-4 flex items-center justify-end gap-4'>
+        <div className='absolute bottom-2 right-2 flex items-center justify-end'>
           {github ? (
             <a href={github} target='_blank'>
               <AiFillGithub className='h-6 w-6 duration-150 hover:scale-110' />

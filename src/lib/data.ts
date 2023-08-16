@@ -74,14 +74,6 @@ export const socialMedias = [
 
 export const projects = [
   {
-    id: 1,
-    name: 'Portfolio',
-    image: '/images/portfolio-page.webp',
-    link: undefined,
-    github: '#',
-    tags: ['React', 'Typescript', 'TailwindCSS', 'NextJS'],
-  },
-  {
     id: 2,
     name: 'Monstercat Clone Page',
     image: '/images/monstercat-page.webp',
@@ -95,7 +87,7 @@ export const projects = [
     image: '/images/turicuentro-page.webp',
     link: undefined,
     github: undefined,
-    tags: ['React', 'Material-UI', 'PostgreSQL', 'NodeJS', 'Express'],
+    tags: ['React', 'Material-UI', 'PostgreSQL', 'Express'],
   },
   {
     id: 4,
@@ -115,11 +107,19 @@ export const projects = [
   },
   {
     id: 6,
-    name: 'F2P Games search',
+    name: 'F2P Games Search',
     image: '/images/f2p-games-page.webp',
     link: 'https://f2p-games-search.netlify.app/',
     github: 'https://github.com/codiegos/f2p-games',
     tags: ['React', 'TailwindCSS'],
+  },
+  {
+    id: 1,
+    name: 'Portfolio',
+    image: '/images/portfolio-page.webp',
+    link: undefined,
+    github: '#',
+    tags: ['React', 'Typescript', 'TailwindCSS', 'NextJS'],
   },
 ] as const
 
