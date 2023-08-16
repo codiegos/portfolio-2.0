@@ -49,10 +49,7 @@ function Experience() {
   ] as const
 
   return (
-    <section className='flex max-w-2xl flex-col lg:max-w-full'>
-      <h2 className='text-3xl font-bold text-pink-400 sm:text-4xl'>
-        Experience
-      </h2>
+    <section className='flex flex-col'>
       <article className='relative my-8 grid grid-cols-[10px_1fr] gap-4'>
         {infoExperience.map(({ title, date, description, charge }, index) => (
           <ExperienceCard
