@@ -3,13 +3,16 @@ import { useId } from 'react'
 import { AiOutlineMenu, AiFillCloseCircle } from 'react-icons/ai'
 import { motion } from 'framer-motion'
 import { links } from '@/lib/data'
-import { MenuItem } from './MenuItem'
 import { useMenu } from '@/hooks/useMenu'
 import Image from 'next/image'
+import { useActiveSection } from '@/hooks/useActiveSection'
+import Link from 'next/link'
 
 function Header() {
   const menuId = useId()
   const { isOpen, setIsOpen } = useMenu()
+  const { activeSection, setActiveSection, setTimeOfLastClick } =
+    useActiveSection()
   return (
     <header
       className={
@@ -32,13 +35,15 @@ function Header() {
             <AiOutlineMenu className='opacity h-6 w-6 rounded bg-primary/50' />
           )}
         </label>
-        <Image
-          src='/icon.png'
-          width={36}
-          height={36}
-          alt='logo'
-          className='absolute left-4 top-4 sm:hidden'
-        />
+        <picture>
+          <Image
+            src='/icon.png'
+            width={36}
+            height={36}
+            alt='logo'
+            className='absolute left-4 top-4 sm:hidden'
+          />
+        </picture>
         <input readOnly checked={isOpen} type='checkbox' id={menuId} hidden />
         <ul
           className={`flex flex-col items-center justify-center gap-8 bg-primary/90 transition-all duration-200 sm:flex sm:h-auto sm:flex-row sm:bg-transparent ${
@@ -48,7 +53,24 @@ function Header() {
           }`}
         >
           {links.map(({ name, hash }) => (
-            <MenuItem key={hash} name={name} hash={hash} />
+            <motion.li
+              key={hash}
+              className='cursor-pointer transition hover:text-pink-400'
+              onClick={() => {
+                setIsOpen(false)
+                setActiveSection(name)
+                setTimeOfLastClick(Date.now())
+              }}
+            >
+              <Link
+                href={hash}
+                className={`${
+                  name === activeSection ? 'text-pink-400' : 'text-white'
+                }`}
+              >
+                {name}
+              </Link>
+            </motion.li>
           ))}
         </ul>
       </motion.nav>
