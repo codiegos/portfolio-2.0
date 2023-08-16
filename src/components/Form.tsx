@@ -1,3 +1,5 @@
+'use client'
+
 import { FormEvent, useState } from 'react'
 import { AiOutlineLoading } from 'react-icons/ai'
 import { toast } from 'sonner'
@@ -45,6 +47,7 @@ function Form() {
           className='mt-1 w-full rounded border border-violet-950 bg-primary p-2.5 outline-none brightness-125 placeholder:text-gray-600 focus:ring-1 focus:ring-violet-700/50'
           placeholder='Johan Liebert'
           required
+          maxLength={100}
         />
       </label>
       <label>
@@ -54,6 +57,7 @@ function Form() {
           type='email'
           className='mt-1 w-full rounded-md border border-violet-950 bg-primary p-2.5 outline-none brightness-125 placeholder:text-gray-600 focus:ring-1 focus:ring-violet-700/50'
           placeholder='johan.liebert@example.com'
+          maxLength={150}
           required
         />
       </label>
@@ -64,6 +68,7 @@ function Form() {
           className='mt-1 w-full rounded-md border border-violet-950 bg-primary p-2.5 outline-none brightness-125 placeholder:text-gray-600 focus:ring-1 focus:ring-violet-700/50'
           rows={3}
           placeholder="Tell me what you're thinking about..."
+          maxLength={2500}
         />
       </label>
       <button
