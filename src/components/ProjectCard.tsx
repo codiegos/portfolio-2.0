@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { AiFillGithub, AiFillLock, AiOutlineLink } from 'react-icons/ai'
 import { GradientText } from './GradientText'
+import { motion } from 'framer-motion'
 
 interface ProjectCardProps {
   name: string
@@ -8,11 +9,41 @@ interface ProjectCardProps {
   tags: readonly string[]
   github?: string
   link?: string
+  index: number
+}
+const fadeInAnimationVariants = {
+  initial: {
+    opacity: 0,
+    y: 100,
+  },
+  animate: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.17 * index,
+    },
+  }),
 }
 
-function ProjectCard({ name, image, tags, github, link }: ProjectCardProps) {
+function ProjectCard({
+  name,
+  image,
+  tags,
+  github,
+  link,
+  index,
+}: ProjectCardProps) {
   return (
-    <article className='relative flex max-w-xl flex-col overflow-hidden rounded-lg bg-secondary/10 ring-2 ring-violet-700/50'>
+    <motion.article
+      className='relative flex max-w-xl flex-col overflow-hidden rounded-lg bg-secondary/10 ring-2 ring-violet-700/50'
+      variants={fadeInAnimationVariants}
+      initial='initial'
+      whileInView='animate'
+      viewport={{
+        once: true,
+      }}
+      custom={index}
+    >
       <Image
         src={image}
         alt={name}
@@ -53,7 +84,7 @@ function ProjectCard({ name, image, tags, github, link }: ProjectCardProps) {
           )}
         </div>
       </div>
-    </article>
+    </motion.article>
   )
 }
 export default ProjectCard
