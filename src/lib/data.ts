@@ -59,7 +59,7 @@ export const socialMedias = [
     name: 'Instagram',
     link: 'https://www.instagram.com/blind.cloud/',
     icon: PiInstagramLogo,
-    color: '#C6379C',
+    color: '#C6378D',
     clipboardCopy: 'https://www.instagram.com/blind.cloud/',
   },
   {
