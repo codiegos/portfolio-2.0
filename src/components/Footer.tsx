@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className='my-10 px-4 text-center text-xs text-slate-400'>
+    <footer className='px-4 py-10 text-center text-xs text-slate-400'>
       <small className='mb-2 block text-xs'>
         Designed & Developed Diego Rivera
       </small>

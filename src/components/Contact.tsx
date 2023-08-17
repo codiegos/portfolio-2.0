@@ -8,6 +8,20 @@ import { Toaster, toast } from 'sonner'
 import { useSectionInView } from '@/hooks/useSectionInView'
 import { useRef } from 'react'
 
+const fadeInAnimationVariants = {
+  initial: {
+    opacity: 0,
+    y: 100,
+  },
+  animate: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.1 * index,
+    },
+  }),
+}
+
 function Contact() {
   const { ref } = useSectionInView('Contact')
 
@@ -40,10 +54,17 @@ function Contact() {
           <Form />
           <ul className='flex flex-col justify-end gap-6 sm:text-lg'>
             {socialMedias.map(
-              ({ name, link, icon: Icon, color, clipboardCopy }) => (
-                <li
+              ({ name, link, icon: Icon, color, clipboardCopy }, index) => (
+                <motion.li
                   key={name}
                   className='flex items-center justify-between gap-12'
+                  variants={fadeInAnimationVariants}
+                  initial='initial'
+                  whileInView='animate'
+                  viewport={{
+                    once: true,
+                  }}
+                  custom={index}
                 >
                   <a
                     href={link}
@@ -61,7 +82,7 @@ function Contact() {
                   >
                     <BiCopy className='h-6 w-6' />
                   </button>
-                </li>
+                </motion.li>
               ),
             )}
           </ul>

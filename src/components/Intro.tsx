@@ -3,13 +3,12 @@ import { useSectionInView } from '@/hooks/useSectionInView'
 import { GradientText } from './GradientText'
 import { TextAnimation } from './TextAnimation'
 import { motion } from 'framer-motion'
-import { BackgroundAnimation } from './BackgroundAnimation'
 
 export default function Intro() {
   const { ref } = useSectionInView('Home', 0.5)
   return (
     <section
-      className='relative flex flex-col items-center justify-center pt-16 text-center text-2xl font-black tracking-widest sm:pt-32 sm:text-3xl lg:min-h-screen lg:bg-violet-900/10 lg:py-[4.5rem] lg:pt-0 lg:text-5xl'
+      className='flex flex-col items-center justify-center pt-16 text-center text-2xl font-black tracking-widest sm:pt-32 sm:text-3xl lg:min-h-screen lg:bg-violet-900/10 lg:py-[4.5rem] lg:pt-0 lg:text-5xl'
       id='home'
       ref={ref}
     >
@@ -18,8 +17,6 @@ export default function Intro() {
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
       >
-        <BackgroundAnimation />
-
         <h1>
           <GradientText
             text='HELLO,'
