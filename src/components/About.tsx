@@ -6,17 +6,20 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useSectionInView } from '@/hooks/useSectionInView'
 import { useRef } from 'react'
 import { useActiveSection } from '@/hooks/useActiveSection'
+import { isMobile } from 'react-device-detect'
 
 function About() {
   const { ref } = useSectionInView('About me')
+  const { setActiveSection, setTimeOfLastClick } = useActiveSection()
+
   const refScroll = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: refScroll,
     offset: ['0 1', '1 1'],
   })
-  const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.3, 2])
+  const opacityProgessAbout = useTransform(scrollYProgress, [0, 1], [0.2, 1.5])
+  const opacityProgessExp = useTransform(scrollYProgress, [0, 1], [0, 1.5])
 
-  const { setActiveSection, setTimeOfLastClick } = useActiveSection()
   return (
     <motion.section
       className='container mt-12 flex max-w-6xl flex-col gap-12'
@@ -29,7 +32,7 @@ function About() {
         className='flex flex-col-reverse justify-between lg:flex-row'
         ref={refScroll}
         style={{
-          opacity: opacityProgess,
+          opacity: !isMobile ? opacityProgessAbout : 'unset',
         }}
       >
         <div className='flex h-full flex-col justify-between gap-6 lg:items-start'>
@@ -86,7 +89,7 @@ function About() {
       <motion.div
         ref={refScroll}
         style={{
-          opacity: opacityProgess,
+          opacity: opacityProgessExp,
         }}
       >
         <Experience />
