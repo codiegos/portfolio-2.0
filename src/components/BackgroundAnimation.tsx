@@ -111,7 +111,7 @@ export function BackgroundAnimation() {
       animate={{ opacity: 0.2 }}
       transition={{ duration: 0.4, delay: 1.3 }}
       ref={canvasRef}
-      className='absolute -inset-2 -z-10 min-h-screen w-auto bg-tertiary'
+      className='absolute -inset-2 -z-10 bg-tertiary'
     />
   )
 }

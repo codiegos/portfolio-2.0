@@ -5,7 +5,6 @@ import { Inter } from 'next/font/google'
 import React from 'react'
 import { MenuProvider } from '@/contexts/menu-context'
 import { Toaster } from 'sonner'
-import { BackgroundAnimation } from '@/components/BackgroundAnimation'
 import ActiveSectionContextProvider from '@/contexts/active-section-context'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -25,7 +24,6 @@ export default function RootLayout({
       <body className={`${inter.className} bg-tertiary text-white`}>
         <ActiveSectionContextProvider>
           <MenuProvider>
-            <BackgroundAnimation />
             <Header />
             {children}
             <Toaster richColors theme='dark' />
