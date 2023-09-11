@@ -1,6 +1,7 @@
-import { AiFillGithub, AiFillLinkedin, AiOutlineWhatsApp } from 'react-icons/ai'
-import { BiLogoGmail } from 'react-icons/bi'
-import { PiInstagramLogo, PiMicrosoftOutlookLogoDuotone } from 'react-icons/pi'
+import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai'
+import { BiLogoGmail, BiLogoDiscordAlt } from 'react-icons/bi'
+import { SiCodewars } from 'react-icons/si'
+import { PiMicrosoftOutlookLogoDuotone } from 'react-icons/pi'
 
 export const links = [
   {
@@ -35,12 +36,12 @@ export const socialMedias = [
     name: 'LinkedIn',
     link: 'https://www.linkedin.com/in/codiegos/',
     icon: AiFillLinkedin,
-    color: '#0A66C2',
+    color: '#0A6FC2',
     clipboardCopy: 'https://www.linkedin.com/in/codiegos/',
   },
   {
     id: 3,
-    name: 'Email',
+    name: 'Gmail',
     link: 'mailto:diegosebsk@gmail.com',
     icon: BiLogoGmail,
     color: '#EA4335',
@@ -56,19 +57,19 @@ export const socialMedias = [
   },
   {
     id: 5,
-    name: 'Instagram',
-    link: 'https://www.instagram.com/blind.cloud/',
-    icon: PiInstagramLogo,
-    color: '#C6378D',
-    clipboardCopy: 'https://www.instagram.com/blind.cloud/',
+    name: 'Discord',
+    link: 'https://discord.com/users/335564193745076226',
+    icon: BiLogoDiscordAlt,
+    color: '#7289DA',
+    clipboardCopy: 'https://discord.com/users/335564193745076226',
   },
   {
     id: 6,
-    name: 'WhatsApp',
-    link: 'https://wa.me/56935553072',
-    icon: AiOutlineWhatsApp,
-    color: '#25D366',
-    clipboardCopy: '+56935553072',
+    name: 'CodeWars',
+    link: 'https://www.codewars.com/users/codiegos',
+    icon: SiCodewars,
+    color: '#B1361F',
+    clipboardCopy: 'https://www.codewars.com/users/codiegos',
   },
 ] as const
 

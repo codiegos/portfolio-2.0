@@ -70,7 +70,7 @@ function Contact() {
                     href={link}
                     target='_blank'
                     rel='noreferrer'
-                    className='flex items-center gap-3'
+                    className='flex items-center gap-3 brightness-110'
                   >
                     <Icon className='h-12 w-12' color={color} />
 
