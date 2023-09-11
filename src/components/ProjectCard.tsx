@@ -44,13 +44,15 @@ function ProjectCard({
       }}
       custom={index}
     >
-      <Image
-        src={image}
-        alt={name}
-        className='h-auto w-full object-cover duration-200 hover:scale-105'
-        width={500}
-        height={500}
-      />
+      <a href={link} target='_blank'>
+        <Image
+          src={image}
+          alt={name}
+          className='h-auto w-full object-cover duration-200 hover:scale-105'
+          width={500}
+          height={500}
+        />
+      </a>
 
       <div className='flex flex-col gap-2 p-2 pb-10'>
         <h3 className='text-xl font-semibold lg:text-2xl'>
