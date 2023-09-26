@@ -63,11 +63,12 @@ function ProjectCard({
         </h3>
         <ul className='flex flex-wrap gap-2'>
           {tags.map((tag, i) => (
-            <div key={i}>
-              <li className='rounded-full bg-gradient-to-tr from-pink-600 to-pink-400 p-1.5 text-[.9rem] ring-2 ring-pink-700'>
-                {tag}
-              </li>
-            </div>
+            <li
+              className='rounded-md bg-pink-500/20 p-1.5 px-2.5 text-xs font-semibold'
+              key={i}
+            >
+              <span className='text-pink-200'>{tag}</span>
+            </li>
           ))}
         </ul>
         <div className='absolute bottom-2 right-2 flex items-center justify-end'>

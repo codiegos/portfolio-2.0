@@ -37,7 +37,7 @@ function Contact() {
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.01, 2])
 
   return (
-    <section className='container max-w-6xl py-6' id='contact' ref={ref}>
+    <section className='container max-w-6xl py-32' id='contact' ref={ref}>
       <motion.div
         className='flex flex-col '
         initial={{ y: 100, opacity: 0 }}
@@ -70,7 +70,7 @@ function Contact() {
                     href={link}
                     target='_blank'
                     rel='noreferrer'
-                    className='flex items-center gap-3 brightness-110'
+                    className='flex items-center gap-3 brightness-110 duration-200 hover:text-pink-300'
                   >
                     <Icon className='h-12 w-12' color={color} />
 

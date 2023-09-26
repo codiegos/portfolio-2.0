@@ -65,7 +65,9 @@ function Header() {
               <Link
                 href={hash}
                 className={`${
-                  name === activeSection ? 'text-pink-400' : 'text-white'
+                  name === activeSection
+                    ? 'text-pink-400'
+                    : 'text-white duration-200 hover:text-pink-300'
                 }`}
               >
                 {name}

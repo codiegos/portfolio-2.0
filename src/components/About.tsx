@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useSectionInView } from '@/hooks/useSectionInView'
 import { useRef } from 'react'
 import { useActiveSection } from '@/hooks/useActiveSection'
+import { MyButton } from './MyButton'
 
 function About() {
   const { ref } = useSectionInView('About me')
@@ -21,7 +22,7 @@ function About() {
 
   return (
     <motion.section
-      className='container mt-12 flex max-w-6xl flex-col gap-12'
+      className='container mt-12 flex max-w-6xl flex-col gap-12 md:py-32'
       id='about'
       ref={ref}
       initial={{ opacity: 0 }}
@@ -38,41 +39,35 @@ function About() {
           <h2 className='text-3xl font-bold text-pink-400 sm:text-4xl'>
             About Me
           </h2>
-          <p className='sm:text-md max-w-2xl 2xl:text-lg'>
-            {
-              "My name is Diego Sebastián Rivera, I'm 22 years old and I am a Programmer Analyst."
-            }
-            <br />I consider myself proficient in both individual and teamwork
-            settings. In addition to my technical skills, I stand out as someone
-            who is highly attentive to details and capable of adapting to
-            changes.
-          </p>
+          <div className='sm:text-md max-w-2xl 2xl:text-lg'>
+            <p>
+              My name is Diego Sebastián Rivera, I'm 22 years old and I am a
+              Programmer Analyst.
+            </p>
+            <p>
+              {' '}
+              I consider myself proficient in both individual and teamwork
+              settings. In addition to my technical skills, I stand out as
+              someone who is highly attentive to details and capable of adapting
+              to changes.
+            </p>
+          </div>
+
           <div className='flex items-center gap-6'>
-            <a
-              href='#'
-              className='to group relative inline-flex items-center justify-start overflow-hidden rounded-xl bg-sky-600 bg-gradient-to-tr from-sky-500 px-6 py-3 font-medium transition-all duration-200 active:scale-95'
-            >
-              <span className='absolute right-0 top-0 inline-block h-4 w-4 rounded bg-sky-800 transition-all duration-[375ms] ease-in-out group-hover:-mr-4 group-hover:-mt-4'>
-                <span className='absolute right-0 top-0 h-5 w-5 -translate-y-1/2 translate-x-1/2 rotate-45 bg-white' />
-              </span>
-              <span className='absolute bottom-0 left-0 h-full w-full -translate-x-full translate-y-full rounded-2xl bg-gradient-to-tr from-sky-600 to-sky-400 transition-all duration-300 ease-in-out group-hover:mb-12 group-hover:translate-x-0' />
-              <span className='relative w-full whitespace-nowrap text-left font-semibold tracking-widest transition-colors duration-150 ease-in-out'>
-                See CV
-              </span>
-            </a>
-            <a
+            <MyButton
+              href='#about'
+              text='See CV'
+              className='bg-sky-600 bg-gradient-to-tr from-sky-400'
+            />
+            <MyButton
               href='#contact'
-              className='to group relative inline-flex items-center justify-start overflow-hidden rounded-xl bg-pink-600 bg-gradient-to-tr from-pink-500 px-6 py-3 font-medium transition-all duration-200 active:scale-95'
+              text='Contact'
+              className='bg-pink-600 bg-gradient-to-tr from-pink-400'
               onClick={() => {
                 setActiveSection('Contact')
                 setTimeOfLastClick(Date.now())
               }}
-            >
-              <span className='absolute bottom-0 left-0 h-full w-full -translate-x-full translate-y-full rounded-2xl bg-gradient-to-tr from-pink-600 to-pink-400 transition-all duration-300 ease-in-out group-hover:mb-12 group-hover:translate-x-0' />
-              <span className='relative w-full whitespace-nowrap text-left font-semibold tracking-widest transition-colors duration-150 ease-in-out'>
-                Contact Me
-              </span>
-            </a>
+            />
           </div>
         </div>
         <picture className='mx-auto mb-12 lg:mx-0 lg:mb-0'>
