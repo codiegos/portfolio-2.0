@@ -44,7 +44,7 @@ function ProjectCard({
       }}
       custom={index}
     >
-      <a href={link} target='_blank'>
+      <a href={link} target='_blank' className='overflow-hidden'>
         <Image
           src={image}
           alt={name}
@@ -54,24 +54,26 @@ function ProjectCard({
         />
       </a>
 
-      <div className='flex flex-col gap-2 p-2 pb-10'>
-        <h3 className='text-xl font-semibold lg:text-2xl'>
-          <GradientText
-            text={name}
-            className='bg-gradient-to-b from-white to-sky-100'
-          />
-        </h3>
-        <ul className='flex flex-wrap gap-2'>
-          {tags.map((tag, i) => (
-            <li
-              className='rounded-md bg-pink-500/20 p-1.5 px-2.5 text-xs font-semibold'
-              key={i}
-            >
-              <span className='text-pink-200'>{tag}</span>
-            </li>
-          ))}
-        </ul>
-        <div className='absolute bottom-2 right-2 flex items-center justify-end'>
+      <div className='flex flex-col gap-10 p-2.5 pt-6'>
+        <div className='flex flex-col gap-4'>
+          <h3 className='text-xl font-semibold lg:text-2xl'>
+            <GradientText
+              text={name}
+              className='bg-gradient-to-b from-white to-sky-100'
+            />
+          </h3>
+          <ul className='flex flex-wrap gap-2'>
+            {tags.map((tag, i) => (
+              <li
+                className='rounded-md bg-pink-500/20 p-1.5 px-2.5 text-xs font-semibold'
+                key={i}
+              >
+                <span className='text-pink-200'>{tag}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className=' flex items-center justify-end'>
           {github ? (
             <a href={github} target='_blank'>
               <AiFillGithub className='h-6 w-6 duration-150 hover:scale-110' />

@@ -30,7 +30,7 @@ function Projects() {
         <h2 className='text-3xl font-bold text-pink-400 sm:text-4xl'>
           Projects
         </h2>
-        <article className='grid place-content-center justify-between gap-8 sm:grid-cols-2 lg:grid-cols-3'>
+        <article className='grid place-content-center justify-between gap-8 gap-y-20 sm:grid-cols-2 lg:grid-cols-3'>
           {projects.map(({ id, name, image, link, github, tags }, index) => (
             <ProjectCard
               key={id}

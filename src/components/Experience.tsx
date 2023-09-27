@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ExperienceCard from './ExperienceCard'
+import Image from 'next/image'
 
 function Experience() {
   const [moreText, setMoreText] = useState(false)
@@ -21,7 +22,7 @@ function Experience() {
     {
       title: 'Software Developer',
       date: 'Dec-2022 / Jan-2023',
-      charge: 'Freelance - FullStack',
+      charge: 'Freelance - Fullstack',
       description: (
         <>
           <p className='flex flex-col gap-1'>
@@ -57,8 +58,8 @@ function Experience() {
   ] as const
 
   return (
-    <section className='flex flex-col gap-12 pt-16'>
-      <article className='grid max-w-4xl grid-cols-[10px_1fr] gap-6 rounded-md pt-8 md:gap-8'>
+    <section className='flex items-start pt-32'>
+      <article className='grid max-w-3xl grid-cols-[10px_1fr] gap-6 gap-y-20 rounded-md'>
         {infoExperience.map(({ title, date, description, charge }, index) => (
           <ExperienceCard
             key={index}
@@ -69,6 +70,13 @@ function Experience() {
           />
         ))}
       </article>
+      <Image
+        src={'line.svg'}
+        width={350}
+        height={300}
+        alt='ffsdfsd'
+        className='translate-x-8 translate-y-36 -rotate-90 scale-[1.35] hue-rotate-[25deg]'
+      />
     </section>
   )
 }

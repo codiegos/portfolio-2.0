@@ -44,7 +44,7 @@ function Form() {
         <input
           type='text'
           name='name'
-          className='mt-1 w-full rounded border border-violet-950 bg-primary p-2.5 outline-none brightness-125 placeholder:text-gray-600 focus:ring-1 focus:ring-violet-700/50'
+          className='mt-1 w-full rounded border border-violet-950 bg-primary p-2.5 outline-none brightness-125 placeholder:text-slate-300/30 focus:ring-1 focus:ring-violet-700/50'
           placeholder='Johan Liebert'
           required
           maxLength={100}
@@ -55,7 +55,7 @@ function Form() {
         <input
           name='email'
           type='email'
-          className='mt-1 w-full rounded-md border border-violet-950 bg-primary p-2.5 outline-none brightness-125 placeholder:text-gray-600 focus:ring-1 focus:ring-violet-700/50'
+          className='mt-1 w-full rounded-md border border-violet-950 bg-primary p-2.5 outline-none brightness-125 placeholder:text-slate-300/30 focus:ring-1 focus:ring-violet-700/50'
           placeholder='johan.liebert@example.com'
           maxLength={150}
           required
@@ -65,7 +65,7 @@ function Form() {
         Message
         <textarea
           name='message'
-          className='mt-1 w-full rounded-md border border-violet-950 bg-primary p-2.5 outline-none brightness-125 placeholder:text-gray-600 focus:ring-1 focus:ring-violet-700/50'
+          className='mt-1 w-full rounded-md border border-violet-950 bg-primary p-2.5 outline-none brightness-125 placeholder:text-slate-300/30 focus:ring-1 focus:ring-violet-700/50'
           rows={3}
           placeholder="Tell me what you're thinking about..."
           maxLength={2500}

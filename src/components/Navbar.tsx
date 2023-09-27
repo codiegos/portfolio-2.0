@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { useActiveSection } from '@/hooks/useActiveSection'
 import Link from 'next/link'
 
-function Header() {
+function Navbar() {
   const menuId = useId()
   const { isOpen, setIsOpen } = useMenu()
   const { activeSection, setActiveSection, setTimeOfLastClick } =
@@ -16,11 +16,11 @@ function Header() {
   return (
     <header
       className={
-        'fixed left-0 right-0 z-10 m-auto text-lg font-semibold sm:mt-6 sm:w-fit sm:backdrop-blur-sm '
+        'fixed left-0 right-0 z-10 m-auto text-lg font-semibold sm:mt-6 sm:w-fit'
       }
     >
       <motion.nav
-        className='border-secondary/25 sm:rounded-full sm:border-2 sm:bg-primary/50 sm:p-2.5 sm:px-8'
+        className='border-secondary/25 sm:rounded-full sm:border-2 sm:bg-primary/50 sm:p-2.5 sm:px-8 sm:backdrop-blur-sm'
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
       >
@@ -79,4 +79,4 @@ function Header() {
     </header>
   )
 }
-export default Header
+export default Navbar
