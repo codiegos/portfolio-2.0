@@ -75,7 +75,7 @@ function Experience() {
         width={350}
         height={300}
         alt='ffsdfsd'
-        className='translate-x-8 translate-y-36 -rotate-90 scale-[1.35] hue-rotate-[25deg]'
+        className='hidden translate-x-8 translate-y-36 -rotate-90 scale-[1.35] hue-rotate-[25deg] md:block'
       />
     </section>
   )
