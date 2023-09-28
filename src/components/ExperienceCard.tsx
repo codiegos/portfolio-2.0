@@ -22,9 +22,11 @@ function ExperienceCard({
         <div className='flex flex-col gap-2'>
           <div className='flex flex-col justify-between gap-2 text-xl font-bold text-sky-400 sm:text-2xl md:flex-row'>
             <span>{title}</span>
-            <span>{charge}</span>
+            <span className='text-lg font-medium text-sky-300 sm:text-2xl md:font-bold'>
+              {charge}
+            </span>
           </div>
-          <span className='text-sm font-semibold text-sky-300'>{date}</span>
+          <span className='text-sm font-medium text-sky-200'>{date}</span>
         </div>
         <div className='text-justify sm:text-lg'>{description}</div>
       </div>
