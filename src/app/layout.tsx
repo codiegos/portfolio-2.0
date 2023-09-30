@@ -1,7 +1,6 @@
-import Navbar from '@/components/Navbar'
 import './globals.css'
 import type { Metadata } from 'next'
-import {  Montserrat } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import React from 'react'
 import { MenuProvider } from '@/contexts/menu-context'
 import { Toaster } from 'sonner'
@@ -14,8 +13,8 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: 'codiegos',
-  description: 'Diego Sebastián Rivera | Personal Portfolio',
+  title: 'codiegos | Personal Portfolio',
+  description: 'Diego Sebastián Rivera | Software Developer',
 }
 
 export default function RootLayout({
@@ -25,10 +24,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className='!scroll-smooth'>
-      <body className={`${montserrat.variable} bg-tertiary font-sans text-white`}>
+      <body
+        className={`${montserrat.variable} bg-tertiary font-sans text-white`}
+      >
         <ActiveSectionContextProvider>
           <MenuProvider>
-            <Navbar />
             {children}
             <Toaster richColors theme='dark' />
           </MenuProvider>

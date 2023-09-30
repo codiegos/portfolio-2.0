@@ -1,8 +1,9 @@
 'use client'
 import { useSectionInView } from '@/hooks/useSectionInView'
-import { GradientText } from './GradientText'
-import { TextAnimation } from './TextAnimation'
+import { GradientText } from '../components/GradientText'
+import { TextAnimation } from '../components/TextAnimation'
 import { motion } from 'framer-motion'
+import { BackgroundAnimation } from '@/components/BackgroundAnimation'
 
 export default function Intro() {
   const { ref } = useSectionInView('Home', 0.5)
@@ -12,6 +13,7 @@ export default function Intro() {
       id='home'
       ref={ref}
     >
+      <BackgroundAnimation />
       <motion.div
         className='flex flex-col gap-6'
         initial={{ y: 100, opacity: 0 }}
