@@ -1,7 +1,7 @@
 'use client'
 
 import { projects } from '@/lib/data'
-import ProjectCard from './ProjectCard'
+import ProjectCard from '../components/ProjectCard'
 import { useSectionInView } from '@/hooks/useSectionInView'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'

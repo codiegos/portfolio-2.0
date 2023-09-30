@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ExperienceCard from './ExperienceCard'
+import ExperienceCard from '../components/ExperienceCard'
 import Image from 'next/image'
 
 function Experience() {
