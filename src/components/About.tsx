@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useSectionInView } from '@/hooks/useSectionInView'
 import { useRef } from 'react'
 import { useActiveSection } from '@/hooks/useActiveSection'
-import { MyButton } from '@components/MyButton'
+import { MyButton } from '@/components/MyButton'
 
 function About() {
   const { ref } = useSectionInView('About me')
