@@ -1,21 +1,21 @@
-import Intro from '@/sections/Intro'
-import About from '@/sections/About'
-import Projects from '../sections/Projects'
-import Contact from '@/sections/Contact'
+import Intro from '@/components/Intro'
+import About from '@/components/About'
+import Projects from '@/components/Projects'
+import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
+import { BackgroundAnimation } from '@/components/BackgroundAnimation'
 
 export default function Home() {
   return (
-    <>
-      <main className='relative h-screen w-full'>
-        <Navbar />
-        <Intro />
-        <About />
-        <Projects />
-        <Contact />
-        <Footer />
-      </main>
-    </>
+    <main className='relative h-screen w-full'>
+      <BackgroundAnimation />
+      <Navbar />
+      <Intro />
+      <About />
+      <Projects />
+      <Contact />
+      <Footer />
+    </main>
   )
 }

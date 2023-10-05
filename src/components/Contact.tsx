@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import Form from '../components/Form'
+import Form from '@/components/Form'
 import { socialMedias } from '@/lib/data'
 import { BiCopy } from 'react-icons/bi'
 import { Toaster, toast } from 'sonner'

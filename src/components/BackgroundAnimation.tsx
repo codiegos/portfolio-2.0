@@ -2,7 +2,7 @@
 
 import { m } from 'framer-motion'
 import { useEffect, useRef } from 'react'
-import { canvasImages } from '../lib/data'
+import { canvasImages } from '@/lib/data'
 
 export function BackgroundAnimation() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
