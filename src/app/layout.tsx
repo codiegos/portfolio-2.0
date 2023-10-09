@@ -15,6 +15,8 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: 'codiegos | Personal Portfolio',
   description: 'Diego Sebastián Rivera | Software Developer',
+  viewport: 'width=device-width, initial-scale=1',
+  themeColor: '#110428',
 }
 
 export default function RootLayout({

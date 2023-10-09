@@ -70,6 +70,7 @@ function Contact() {
                     href={link}
                     target='_blank'
                     rel='noreferrer'
+                    aria-label='Social media link'
                     className='flex items-center gap-3 brightness-110 duration-200 hover:text-pink-300'
                   >
                     <Icon className='h-12 w-12' color={color} />
@@ -78,6 +79,7 @@ function Contact() {
                   </a>
                   <button
                     className='rounded-lg bg-violet-900 p-1 ring-2 ring-violet-800 duration-200 hover:scale-105 hover:text-pink-300'
+                    aria-label='Copy to clipboard'
                     onClick={() => handleClipboardCopy(name, clipboardCopy)}
                   >
                     <BiCopy className='h-6 w-6' />

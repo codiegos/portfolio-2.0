@@ -8,7 +8,6 @@ function Form() {
   const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
     const formData = new FormData(e.currentTarget)
     const payload = Object.fromEntries(formData.entries())
 
@@ -39,38 +38,44 @@ function Form() {
       className='flex w-full flex-col gap-6 sm:text-lg'
       onSubmit={handleSubmit}
     >
-      <label>
-        Your name
+      <div>
+        <label htmlFor='name'>Your name</label>
         <input
+          id='name'
           type='text'
           name='name'
           className='mt-1 w-full rounded border border-violet-950 bg-primary p-2.5 outline-none brightness-125 placeholder:text-slate-300/30 focus:ring-1 focus:ring-violet-700/50'
           placeholder='Johan Liebert'
           required
-          maxLength={100}
+          maxLength={75}
         />
-      </label>
-      <label>
-        Email address
+      </div>
+      <div>
+        <label htmlFor='email' className=''>
+          Email address
+        </label>
         <input
+          id='email'
           name='email'
           type='email'
           className='mt-1 w-full rounded-md border border-violet-950 bg-primary p-2.5 outline-none brightness-125 placeholder:text-slate-300/30 focus:ring-1 focus:ring-violet-700/50'
+          onError={(e) => console.log(e)}
           placeholder='johan.liebert@example.com'
-          maxLength={150}
+          maxLength={90}
           required
         />
-      </label>
-      <label>
-        Message
+      </div>
+      <div>
+        <label htmlFor='message'>Message</label>
         <textarea
+          id='message'
           name='message'
           className='mt-1 w-full rounded-md border border-violet-950 bg-primary p-2.5 outline-none brightness-125 placeholder:text-slate-300/30 focus:ring-1 focus:ring-violet-700/50'
           rows={3}
           placeholder="Tell me what you're thinking about..."
-          maxLength={2500}
+          maxLength={500}
         />
-      </label>
+      </div>
       <button
         type='submit'
         className='rounded-lg bg-violet-800 p-2.5 px-5 outline-none transition duration-200 hover:bg-violet-700 active:scale-95'

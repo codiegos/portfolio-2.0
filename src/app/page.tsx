@@ -9,8 +9,8 @@ import Contact from '@/components/Contact'
 export default function Home() {
   return (
     <main className='relative h-screen w-full'>
-      <BackgroundAnimation />
       <Navbar />
+      <BackgroundAnimation />
       <Intro />
       <About />
       <Projects />

@@ -44,7 +44,18 @@ function ProjectCard({
       }}
       custom={index}
     >
-      <a href={link} target='_blank' className='overflow-hidden'>
+      {link ? (
+        <a href={link} target='_blank' className='overflow-hidden'>
+          <Image
+            src={image}
+            alt={name}
+            className='h-auto w-full object-cover duration-200 hover:scale-105'
+            width={500}
+            height={500}
+            priority={true}
+          />
+        </a>
+      ) : (
         <Image
           src={image}
           alt={name}
@@ -52,7 +63,7 @@ function ProjectCard({
           width={500}
           height={500}
         />
-      </a>
+      )}
 
       <div className='flex flex-col gap-5 p-4 pb-12'>
         <h3 className='text-xl font-semibold lg:text-2xl'>
@@ -74,7 +85,7 @@ function ProjectCard({
       </div>
       <div className='absolute bottom-4 right-4 flex items-center'>
         {github ? (
-          <a href={github} target='_blank'>
+          <a href={github} target='_blank' aria-label='Github Icon'>
             <AiFillGithub className='h-6 w-6 duration-150 hover:scale-110' />
           </a>
         ) : (
@@ -82,7 +93,7 @@ function ProjectCard({
         )}
 
         {link && (
-          <a href={link} target='_blank'>
+          <a href={link} target='_blank' aria-label='Link Icon'>
             <AiOutlineLink className='h-6 w-6 text-sky-400 duration-150 hover:scale-110' />
           </a>
         )}

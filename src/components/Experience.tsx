@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import ExperienceCard from '@/components/ExperienceCard'
-import Image from 'next/image'
+import { ColorfullLine } from './Icons'
 
 function Experience() {
   const [moreText, setMoreText] = useState(false)
@@ -70,13 +70,7 @@ function Experience() {
           />
         ))}
       </article>
-      <Image
-        src={'line.svg'}
-        width={350}
-        height={300}
-        alt='ffsdfsd'
-        className='hidden translate-x-8 translate-y-36 -rotate-90 scale-[1.35] hue-rotate-[25deg] md:block'
-      />
+      <ColorfullLine className='hidden h-96 w-96 translate-x-8 translate-y-8 -rotate-90 scale-[1.30] xl:block' />
     </section>
   )
 }
