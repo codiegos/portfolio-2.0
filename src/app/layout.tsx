@@ -19,8 +19,6 @@ export const metadata: Metadata = {
   themeColor: '#110428',
   openGraph: {
     title: 'codiegos | Personal Portfolio',
-    description:
-      'Welcome to the personal portfolio of Diego Sebastián Rivera, a skilled Software Developer.',
     images: [
       {
         url: '/images/opengraph-image.jpg',
