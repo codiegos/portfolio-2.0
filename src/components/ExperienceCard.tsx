@@ -28,7 +28,7 @@ function ExperienceCard({
           </div>
           <span className='text-sm font-medium text-sky-300'>{date}</span>
         </div>
-        <div className='text-justify sm:text-lg'>{description}</div>
+        <div className='sm:text-lg'>{description}</div>
       </div>
     </>
   )

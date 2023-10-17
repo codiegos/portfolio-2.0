@@ -39,7 +39,7 @@ function Contact() {
   return (
     <section className='container max-w-6xl py-32' id='contact' ref={ref}>
       <motion.div
-        className='flex flex-col '
+        className='flex flex-col'
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         ref={refScroll}

@@ -28,7 +28,7 @@ function About() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
-      <motion.div
+      <motion.article
         className='flex flex-col-reverse justify-between lg:flex-row'
         ref={refScroll}
         style={{
@@ -39,7 +39,7 @@ function About() {
           <h2 className='text-3xl font-bold text-pink-400 sm:text-4xl'>
             About Me
           </h2>
-          <div className='sm:text-md max-w-3xl text-justify 2xl:text-lg'>
+          <div className='sm:text-md max-w-3xl 2xl:text-lg'>
             <p>
               My name is Diego Sebastián Rivera, I'm 22 years old and I am a
               Programmer Analyst.
@@ -78,7 +78,7 @@ function About() {
             height={743}
           />
         </picture>
-      </motion.div>
+      </motion.article>
       <motion.div
         ref={refScroll}
         style={{

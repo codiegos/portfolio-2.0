@@ -10,6 +10,7 @@ function Form() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     const formData = new FormData(e.currentTarget)
     const payload = Object.fromEntries(formData.entries())
+    console.log(payload)
 
     try {
       setIsLoading(true)
