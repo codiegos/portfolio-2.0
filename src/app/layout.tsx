@@ -17,6 +17,19 @@ export const metadata: Metadata = {
   description: 'Diego Sebastián Rivera | Software Developer',
   viewport: 'width=device-width, initial-scale=1',
   themeColor: '#110428',
+  openGraph: {
+    title: 'codiegos | Personal Portfolio',
+    description:
+      'Welcome to the personal portfolio of Diego Sebastián Rivera, a skilled Software Developer.',
+    images: [
+      {
+        url: '/images/opengraph-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Portfolio Cover Image',
+      },
+    ],
+  },
 }
 
 export default function RootLayout({
