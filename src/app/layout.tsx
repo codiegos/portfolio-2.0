@@ -18,15 +18,12 @@ export const metadata: Metadata = {
   viewport: 'width=device-width, initial-scale=1',
   themeColor: '#110428',
   openGraph: {
-    title: 'codiegos | Personal Portfolio',
-    images: [
-      {
-        url: '/images/opengraph-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Portfolio Cover Image',
-      },
-    ],
+    images: {
+      url: '/images/opengraph-image.jpg',
+      width: 1200,
+      height: 630,
+      alt: 'Portfolio Cover Image',
+    },
   },
 }
 
