@@ -8,24 +8,23 @@ function Form() {
   const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     const formData = new FormData(e.currentTarget)
-    const payload = Object.fromEntries(formData.entries())
-    console.log(payload)
+    const data = Object.fromEntries(formData.entries())
+    console.log(data)
 
     try {
       setIsLoading(true)
-      const res = await fetch('api/send', {
+      const response = await fetch('/api/send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(data),
       })
-      toast.promise(res.json(), {
-        loading: 'Sending...',
-        success: 'Sent!',
-        error: 'Something went wrong!',
-      })
+      if (response.status === 200) {
+        toast.success('Message sent!')
+      }
     } catch (err) {
       toast.error('Something went wrong!')
     } finally {
@@ -71,10 +70,11 @@ function Form() {
         <textarea
           id='message'
           name='message'
-          className='mt-1 w-full rounded-md border border-violet-950 bg-primary p-2.5 outline-none brightness-125 placeholder:text-slate-300/30 focus:ring-1 focus:ring-violet-700/50'
+          className='mt-1 w-full resize-none rounded-md border border-violet-950 bg-primary p-2.5 outline-none brightness-125 placeholder:text-slate-300/30 focus:ring-1 focus:ring-violet-700/50'
           rows={3}
           placeholder="Tell me what you're thinking about..."
           maxLength={500}
+          required
         />
       </div>
       <button
