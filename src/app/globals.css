@@ -12,6 +12,10 @@
   scrollbar-color: var(--secondary) var(--primary);
 }
 
+html {
+  color-scheme: dark;
+}
+
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   width: 7px;
