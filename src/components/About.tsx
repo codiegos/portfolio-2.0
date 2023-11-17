@@ -54,7 +54,7 @@ function About() {
 
           <div className='flex items-center gap-6'>
             <MyButton
-              href='https://drive.google.com/file/d/1nswQqDqQsN5zyr-G7Hf65kCiOi-mcU9x/view?usp=sharing'
+              href='https://drive.google.com/file/d/1kfWj11py8trzah9cM8fnlXQs9tQr-7xY/view?usp=sharing'
               text='See CV'
               className='bg-sky-600 bg-gradient-to-tr from-sky-400'
               target='_blank'
