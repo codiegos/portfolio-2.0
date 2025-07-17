@@ -1,5 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
+import type { Viewport } from 'next'
 import { Montserrat } from 'next/font/google'
 import React from 'react'
 import { MenuProvider } from '@/contexts/menu-context'
@@ -15,8 +16,6 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: 'codiegos | Personal Portfolio',
   description: 'Diego Sebastián Rivera | Software Developer',
-  viewport: 'width=device-width, initial-scale=1',
-  themeColor: '#110428',
   openGraph: {
     images: {
       url: '/images/opengraph-image.jpg',
@@ -25,6 +24,12 @@ export const metadata: Metadata = {
       alt: 'Portfolio Cover Image',
     },
   },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#110428',
 }
 
 export default function RootLayout({
