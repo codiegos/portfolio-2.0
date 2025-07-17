@@ -4,24 +4,32 @@ import { NextResponse } from 'next/server'
 import { validateString, getErrorMessage } from '@/lib/utils'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
-export async function POST(request: Request) {
+
+export async function POST(request: Request): Promise<NextResponse> {
   try {
     const { name, email, message } = await request.json()
+
     if (!validateString(name, 100)) {
-      return {
-        error: 'Invalid sender name',
-      }
+      return NextResponse.json(
+        { error: 'Invalid sender name' },
+        { status: 400 }
+      )
     }
+
     if (!validateString(email, 150)) {
-      return {
-        error: 'Invalid sender email',
-      }
+      return NextResponse.json(
+        { error: 'Invalid sender email' },
+        { status: 400 }
+      )
     }
+
     if (!validateString(message, 2500)) {
-      return {
-        error: 'Invalid message',
-      }
+      return NextResponse.json(
+        { error: 'Invalid message' },
+        { status: 400 }
+      )
     }
+
     await resend.emails.send({
       from: 'Acme <onboarding@resend.dev>',
       to: ['diegosebsk@gmail.com'],
@@ -30,8 +38,14 @@ export async function POST(request: Request) {
       text: '',
     })
 
-    return NextResponse.json({ message: 'Email sent!' }, { status: 200 })
+    return NextResponse.json(
+      { message: 'Email sent!' },
+      { status: 200 }
+    )
   } catch (err) {
-    return NextResponse.json({ message: getErrorMessage(err) }, { status: 500 })
+    return NextResponse.json(
+      { error: getErrorMessage(err) },
+      { status: 500 }
+    )
   }
 }
