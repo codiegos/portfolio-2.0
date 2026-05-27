@@ -1,3 +1,4 @@
+import { createElement } from 'react'
 import { Resend } from 'resend'
 import { EmailTemplate } from '@/components/EmailTemplate'
 import { NextResponse } from 'next/server'
@@ -34,7 +35,7 @@ export async function POST(request: Request): Promise<NextResponse> {
       from: 'Acme <onboarding@resend.dev>',
       to: ['diegosebsk@gmail.com'],
       subject: 'Portfolio Contact Form',
-      react: EmailTemplate({ name, email, message }),
+      react: createElement(EmailTemplate, { name, email, message }),
       text: '',
     })
 

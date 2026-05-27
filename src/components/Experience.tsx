@@ -1,76 +1,68 @@
-import { useState } from 'react'
+'use client'
+
+import { useMemo, useState } from 'react'
 import ExperienceCard from '@/components/ExperienceCard'
 import { ColorfullLine } from './Icons'
+import { useLanguage } from '@/contexts/language-context'
 
 function Experience() {
-  const [moreText, setMoreText] = useState(false)
+  const { t } = useLanguage()
+  const items = t.experience.items
+  const [expanded, setExpanded] = useState<boolean[]>(() =>
+    items.map(() => false),
+  )
 
-  const infoExperience = [
-    {
-      title: 'Professional Internship',
-      date: 'Aug-2022 / Nov-2022',
-      charge: 'Smert Group - Frontend',
-      description: (
-        <p>
-          During this work placement, I had the opportunity to utilize
-          technologies like React, Redux Toolkit Query, and TailwindCSS. I
-          actively participated in the development of various modules, with a
-          specific focus on a course module designed for firefighter training.
-        </p>
-      ),
-    },
-    {
-      title: 'Software Developer',
-      date: 'Dec-2022 / Jan-2023',
-      charge: 'Freelance - Fullstack',
-      description: (
-        <>
-          <p className='flex flex-col gap-1'>
-            I played an important role in the development of an information
-            system for the tourism industry using React in the frontend,
-            TailwindCSS for the UI design, JSON Web Tokens (JWT) for
-            authentication and POSTGRESQL as database.
-            <span
-              className='cursor-pointer text-pink-300 duration-200 hover:text-pink-400'
-              onClick={() => setMoreText(!moreText)}
-            >
-              {!moreText && ' Read more...'}
-            </span>
-          </p>
-          {moreText && (
-            <p>
-              This information system streamlined the management of stateroom
-              reservations through a calendar, as well as the management of
-              customer-related tasks and additional configurations. This allowed
-              them to focus on providing better service and increasing their
-              profitability.
-              <span
-                className='cursor-pointer text-pink-300 duration-200 hover:text-pink-400'
-                onClick={() => setMoreText(!moreText)}
-              >
-                {moreText && ' Read less...'}
-              </span>
-            </p>
-          )}
-        </>
-      ),
-    },
-  ] as const
+  const toggle = (index: number) => {
+    setExpanded((prev) => prev.map((v, i) => (i === index ? !v : v)))
+  }
+
+  const expandedCount = useMemo(
+    () => expanded.filter(Boolean).length,
+    [expanded],
+  )
+
+  const expandedRatio = useMemo(() => {
+    if (expanded.length === 0) return 0.6
+    return Math.min(0.6 + (expandedCount / expanded.length) * 0.4, 1)
+  }, [expanded, expandedCount])
+
+  // How far the thin tail trails below the last card; grows on "read more".
+  const trailPx = 80 + expandedCount * 32
 
   return (
-    <section className='flex items-start pt-32'>
-      <article className='grid max-w-3xl grid-cols-[10px_1fr] gap-6 gap-y-20 rounded-md'>
-        {infoExperience.map(({ title, date, description, charge }, index) => (
-          <ExperienceCard
-            key={index}
-            title={title}
-            date={date}
-            description={description}
-            charge={charge}
-          />
-        ))}
-      </article>
-      <ColorfullLine className='hidden h-96 w-96 translate-x-8 translate-y-8 -rotate-90 scale-[1.30] xl:block' />
+    <section className='pt-20 sm:pt-32'>
+      <h3 className='mb-10 text-3xl font-bold text-sky-400 sm:mb-14 sm:text-4xl'>
+        {t.experience.title}
+      </h3>
+      <div className='relative'>
+        <article className='relative z-10 grid w-full max-w-3xl grid-cols-[10px_1fr] gap-6 gap-y-14 rounded-md sm:gap-y-20'>
+          {items.map((item, index) => (
+            <ExperienceCard
+              key={index}
+              title={item.title}
+              date={item.date}
+              charge={item.company}
+              short={item.short}
+              more={item.more}
+              expanded={expanded[index]}
+              onToggle={() => toggle(index)}
+              isLast={index === items.length - 1}
+              readMoreLabel={t.experience.readMore}
+              readLessLabel={t.experience.readLess}
+            />
+          ))}
+        </article>
+        <ColorfullLine
+          aria-hidden='true'
+          className='pointer-events-none absolute top-0 right-0 hidden w-44 opacity-95 transition-[bottom] duration-500 ease-out xl:block 2xl:w-56'
+          style={{
+            bottom: `-${trailPx}px`,
+            filter: `drop-shadow(0 0 ${expandedRatio * 18}px rgba(56, 189, 248, 0.5))`,
+            WebkitMaskImage: `linear-gradient(to bottom, #000 calc(100% - ${trailPx + 16}px), transparent)`,
+            maskImage: `linear-gradient(to bottom, #000 calc(100% - ${trailPx + 16}px), transparent)`,
+          }}
+        />
+      </div>
     </section>
   )
 }

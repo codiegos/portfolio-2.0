@@ -6,16 +6,25 @@ import React from 'react'
 import { MenuProvider } from '@/contexts/menu-context'
 import { Toaster } from 'sonner'
 import ActiveSectionContextProvider from '@/contexts/active-section-context'
+import { LanguageProvider } from '@/contexts/language-context'
 
+// NOTE: Kinetika is a paid font (Indyground / Onur Yıldırım) and is not on
+// Google Fonts. Using Noto_Sans_Khmer as the closest free, geometric alternative.
+// To switch to true Kinetika: drop the .woff2/.ttf files in src/app/fonts/
+// and replace this import with `localFont` from 'next/font/local'.
 const montserrat = Montserrat({
   subsets: ['latin'],
   variable: '--font-montserrat',
   weight: ['100', '300', '400', '500', '700', '900'],
 })
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://codiegos.vercel.app'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: 'codiegos | Personal Portfolio',
-  description: 'Diego Sebastián Rivera | Software Developer',
+  description: 'Diego Sebastián Rivera | Full Stack Developer',
   openGraph: {
     images: {
       url: '/images/opengraph-image.jpg',
@@ -29,7 +38,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#110428',
+  themeColor: '#07101e',
 }
 
 export default function RootLayout({
@@ -38,16 +47,23 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en' className='!scroll-smooth'>
+    <html
+      lang='en'
+      className={`scroll-smooth! ${montserrat.variable}`}
+      suppressHydrationWarning
+    >
       <body
-        className={`${montserrat.variable} bg-tertiary font-sans text-white`}
+        className={`bg-tertiary overflow-x-hidden font-sans text-white`}
+        suppressHydrationWarning
       >
-        <ActiveSectionContextProvider>
-          <MenuProvider>
-            {children}
-            <Toaster richColors theme='dark' />
-          </MenuProvider>
-        </ActiveSectionContextProvider>
+        <LanguageProvider>
+          <ActiveSectionContextProvider>
+            <MenuProvider>
+              {children}
+              <Toaster richColors theme='dark' />
+            </MenuProvider>
+          </ActiveSectionContextProvider>
+        </LanguageProvider>
       </body>
     </html>
   )

@@ -14,7 +14,7 @@ export function BackgroundAnimation() {
       image.src = source
       return image
     })
-    let ctx = canvas.getContext('2d') as CanvasRenderingContext2D
+    const ctx = canvas.getContext('2d') as CanvasRenderingContext2D
     const mouse = { x: -1000, y: -1000 }
     canvas.addEventListener('mousemove', (e) => {
       mouse.x = e.clientX
@@ -74,10 +74,11 @@ export function BackgroundAnimation() {
       }
     }
     let particles: Particle[] = []
-    let expectedSize = Math.round(innerWidth / 20)
-    let SIZE = expectedSize < 30 ? 30 : expectedSize > 50 ? 50 : expectedSize
+    const initialSize = Math.round(innerWidth / 20)
+    let SIZE =
+      initialSize < 30 ? 30 : initialSize > 50 ? 50 : initialSize
     const setup = () => {
-      let expectedSize = Math.round(innerWidth / 20)
+      const expectedSize = Math.round(innerWidth / 20)
       SIZE = expectedSize < 30 ? 30 : expectedSize > 50 ? 50 : expectedSize
       particles = images.map(
         (image) =>

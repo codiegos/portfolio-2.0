@@ -1,63 +1,66 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Form from '@/components/Form'
 import { socialMedias } from '@/lib/data'
 import { BiCopy } from 'react-icons/bi'
 import { Toaster, toast } from 'sonner'
 import { useSectionInView } from '@/hooks/useSectionInView'
-import { useRef } from 'react'
+import { useLanguage } from '@/contexts/language-context'
 
 const fadeInAnimationVariants = {
   initial: {
     opacity: 0,
-    y: 100,
+    y: 40,
   },
   animate: (index: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.1 * index,
+      delay: 0.08 * index,
+      duration: 0.4,
     },
   }),
 }
 
 function Contact() {
   const { ref } = useSectionInView('Contact')
+  const { t } = useLanguage()
 
   const handleClipboardCopy = (name: string, text: string) => {
-    toast.success(`${name} copied to clipboard!`)
+    toast.success(`${name} ${t.contact.copied}`)
     navigator.clipboard.writeText(text)
   }
-  const refScroll = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: refScroll,
-    offset: ['0 1', '1 1'],
-  })
-  const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.01, 2])
 
   return (
-    <section className='container max-w-6xl py-32' id='contact' ref={ref}>
+    <section
+      className='container max-w-6xl py-24 sm:py-32'
+      id='contact'
+      ref={ref}
+    >
       <motion.div
         className='flex flex-col'
-        initial={{ y: 100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        ref={refScroll}
-        style={{
-          opacity: opacityProgess,
-        }}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
       >
-        <h2 className='text-3xl font-bold text-pink-400 sm:text-4xl'>
-          Get in touch!
-        </h2>
-        <div className='flex flex-col justify-between gap-36 pt-12 lg:flex-row'>
+        <div className='flex flex-col gap-3'>
+          <h2 className='text-3xl font-bold text-sky-400 sm:text-4xl'>
+            {t.contact.title}
+          </h2>
+          <p className='max-w-2xl text-sm text-slate-300/80 sm:text-base'>
+            {t.contact.subtitle}
+          </p>
+        </div>
+        <div className='grid grid-cols-1 items-center gap-12 pt-10 sm:pt-12 lg:grid-cols-2 lg:gap-24'>
           <Form />
-          <ul className='flex flex-col justify-end gap-6 sm:text-lg'>
+          <ul className='flex flex-col gap-6 sm:text-lg'>
             {socialMedias.map(
               ({ name, link, icon: Icon, color, clipboardCopy }, index) => (
                 <motion.li
                   key={name}
-                  className='flex items-center justify-between gap-12'
+                  className='flex items-center justify-between gap-8 sm:gap-12'
                   variants={fadeInAnimationVariants}
                   initial='initial'
                   whileInView='animate'
@@ -71,18 +74,17 @@ function Contact() {
                     target='_blank'
                     rel='noreferrer'
                     aria-label='Social media link'
-                    className='flex items-center gap-3 brightness-110 duration-200 hover:text-pink-300'
+                    className='flex flex-1 items-center gap-3 brightness-110 duration-200 hover:text-sky-300'
                   >
-                    <Icon className='h-12 w-12' color={color} />
-
+                    <Icon className='h-10 w-10 sm:h-12 sm:w-12' color={color} />
                     <span>{name}</span>
                   </a>
                   <button
-                    className='rounded-lg bg-violet-900 p-1 ring-2 ring-violet-800 duration-200 hover:scale-105 hover:text-pink-300'
+                    className='rounded-lg bg-indigo-700 p-2 ring-2 ring-indigo-600 duration-200 hover:scale-105 hover:text-sky-300'
                     aria-label='Copy to clipboard'
                     onClick={() => handleClipboardCopy(name, clipboardCopy)}
                   >
-                    <BiCopy className='h-6 w-6' />
+                    <BiCopy className='h-5 w-5 sm:h-6 sm:w-6' />
                   </button>
                 </motion.li>
               ),

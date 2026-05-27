@@ -3,15 +3,16 @@
 import { FormEvent, useState } from 'react'
 import { AiOutlineLoading } from 'react-icons/ai'
 import { toast } from 'sonner'
+import { useLanguage } from '@/contexts/language-context'
 
 function Form() {
   const [isLoading, setIsLoading] = useState(false)
+  const { t } = useLanguage()
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
     const data = Object.fromEntries(formData.entries())
-    console.log(data)
 
     try {
       setIsLoading(true)
@@ -23,14 +24,19 @@ function Form() {
         body: JSON.stringify(data),
       })
       if (response.status === 200) {
-        toast.success('Message sent!')
+        toast.success(t.contact.sent)
+      } else {
+        toast.error(t.contact.error)
       }
-    } catch (err) {
-      toast.error('Something went wrong!')
+    } catch {
+      toast.error(t.contact.error)
     } finally {
       setIsLoading(false)
     }
   }
+
+  const inputClass =
+    'mt-1 w-full rounded-lg border border-slate-700/50 bg-slate-950/40 p-3 outline-none brightness-110 placeholder:text-slate-300/30 transition focus:border-sky-400/50 focus:ring-2 focus:ring-sky-400/20'
 
   return (
     <form
@@ -39,54 +45,64 @@ function Form() {
       onSubmit={handleSubmit}
     >
       <div>
-        <label htmlFor='name'>Your name</label>
+        <label htmlFor='name' className='text-sm font-medium text-slate-200/80'>
+          {t.contact.name}
+        </label>
         <input
           id='name'
           type='text'
           name='name'
-          className='mt-1 w-full rounded border border-violet-950 bg-primary p-2.5 outline-none brightness-125 placeholder:text-slate-300/30 focus:ring-1 focus:ring-violet-700/50'
-          placeholder='Johan Liebert'
+          className={inputClass}
+          placeholder={t.contact.placeholderName}
           required
           maxLength={75}
         />
       </div>
       <div>
-        <label htmlFor='email' className=''>
-          Email address
+        <label
+          htmlFor='email'
+          className='text-sm font-medium text-slate-200/80'
+        >
+          {t.contact.email}
         </label>
         <input
           id='email'
           name='email'
           type='email'
-          className='mt-1 w-full rounded-md border border-violet-950 bg-primary p-2.5 outline-none brightness-125 placeholder:text-slate-300/30 focus:ring-1 focus:ring-violet-700/50'
-          onError={(e) => console.log(e)}
-          placeholder='johan.liebert@example.com'
+          className={inputClass}
+          placeholder={t.contact.placeholderEmail}
           maxLength={90}
           required
         />
       </div>
       <div>
-        <label htmlFor='message'>Message</label>
+        <label
+          htmlFor='message'
+          className='text-sm font-medium text-slate-200/80'
+        >
+          {t.contact.message}
+        </label>
         <textarea
           id='message'
           name='message'
-          className='mt-1 w-full resize-none rounded-md border border-violet-950 bg-primary p-2.5 outline-none brightness-125 placeholder:text-slate-300/30 focus:ring-1 focus:ring-violet-700/50'
-          rows={3}
-          placeholder="Tell me what you're thinking about..."
+          className={`${inputClass} resize-none`}
+          rows={4}
+          placeholder={t.contact.placeholderMessage}
           maxLength={500}
           required
         />
       </div>
       <button
         type='submit'
-        className='rounded-lg bg-violet-800 p-2.5 px-5 outline-none transition duration-200 hover:bg-violet-700 active:scale-95'
+        className='group relative overflow-hidden rounded-xl bg-linear-to-r from-sky-600 to-indigo-700 p-3 px-6 font-semibold tracking-wide outline-none transition duration-200 hover:shadow-lg hover:shadow-sky-500/30 active:scale-95'
       >
         {isLoading ? (
           <span className='flex flex-nowrap items-center justify-center gap-2'>
-            Sending <AiOutlineLoading className='h-4 w-4 animate-spin' />
+            {t.contact.sending}
+            <AiOutlineLoading className='h-4 w-4 animate-spin' />
           </span>
         ) : (
-          'Send'
+          t.contact.send
         )}
       </button>
     </form>

@@ -1,19 +1,33 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  --primary: #150b11;
-  --secondary: #4e307a;
+@theme {
+  --color-primary: #07101e;
+  --color-secondary: #38bdf8;
+  --color-tertiary: #050810;
+  --font-sans:
+    var(--font-montserrat), Arial;
 }
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@layer base {
+  :root {
+    --primary: #07101e;
+    --secondary: #1e293b;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+}
+
 /* Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--secondary) var(--primary);
-}
-
-html {
-  color-scheme: dark;
 }
 
 /* Chrome, Edge, and Safari */
@@ -56,27 +70,27 @@ input:-webkit-autofill:active {
 }
 
 .text-animation-letter:nth-of-type(5n + 1) {
-  stroke: #ff6bcb;
+  stroke: #38bdf8;
   -webkit-animation-delay: -1.2s;
   animation-delay: -1.2s;
 }
 .text-animation-letter:nth-of-type(5n + 2) {
-  stroke: #ff6bcb;
+  stroke: #38bdf8;
   -webkit-animation-delay: -2.4s;
   animation-delay: -2.4s;
 }
 .text-animation-letter:nth-of-type(5n + 3) {
-  stroke: #2cccff;
+  stroke: #818cf8;
   -webkit-animation-delay: -3.6s;
   animation-delay: -3.6s;
 }
 .text-animation-letter:nth-of-type(5n + 4) {
-  stroke: #2cccff;
+  stroke: #818cf8;
   -webkit-animation-delay: -4.8s;
   animation-delay: -4.8s;
 }
 .text-animation-letter:nth-of-type(5n + 5) {
-  stroke: #a064fb;
+  stroke: #64748b;
   -webkit-animation-delay: -6s;
   animation-delay: -6s;
 }
