@@ -14,7 +14,9 @@
       "Bash(node_modules/.bin/eslint .)",
       "Bash(xargs sed -i 's/bg-gradient-to-/bg-linear-to-/g')",
       "Bash(RESEND_API_KEY=re_dummy_key_for_build node_modules/.bin/next build)",
-      "Bash(RESEND_API_KEY=re_dummy node_modules/.bin/next build)"
+      "Bash(RESEND_API_KEY=re_dummy node_modules/.bin/next build)",
+      "Bash(node -e \"const p=require\\('./package.json'\\); console.log\\(JSON.stringify\\(p.engines||'\\(none\\)'\\)\\)\")",
+      "Bash(git --no-pager diff pnpm-workspace.yaml)"
     ]
   }
 }
