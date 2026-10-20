@@ -13,22 +13,19 @@ export async function POST(request: Request): Promise<NextResponse> {
     if (!validateString(name, 100)) {
       return NextResponse.json(
         { error: 'Invalid sender name' },
-        { status: 400 }
+        { status: 400 },
       )
     }
 
     if (!validateString(email, 150)) {
       return NextResponse.json(
         { error: 'Invalid sender email' },
-        { status: 400 }
+        { status: 400 },
       )
     }
 
     if (!validateString(message, 2500)) {
-      return NextResponse.json(
-        { error: 'Invalid message' },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: 'Invalid message' }, { status: 400 })
     }
 
     await resend.emails.send({
@@ -39,14 +36,8 @@ export async function POST(request: Request): Promise<NextResponse> {
       text: '',
     })
 
-    return NextResponse.json(
-      { message: 'Email sent!' },
-      { status: 200 }
-    )
+    return NextResponse.json({ message: 'Email sent!' }, { status: 200 })
   } catch (err) {
-    return NextResponse.json(
-      { error: getErrorMessage(err) },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: getErrorMessage(err) }, { status: 500 })
   }
 }

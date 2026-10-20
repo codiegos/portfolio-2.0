@@ -7,15 +7,12 @@ import { MenuProvider } from '@/contexts/menu-context'
 import { Toaster } from 'sonner'
 import ActiveSectionContextProvider from '@/contexts/active-section-context'
 import { LanguageProvider } from '@/contexts/language-context'
+import { MotionProvider } from '@/components/MotionProvider'
 
-// NOTE: Kinetika is a paid font (Indyground / Onur Yıldırım) and is not on
-// Google Fonts. Using Noto_Sans_Khmer as the closest free, geometric alternative.
-// To switch to true Kinetika: drop the .woff2/.ttf files in src/app/fonts/
-// and replace this import with `localFont` from 'next/font/local'.
 const montserrat = Montserrat({
   subsets: ['latin'],
   variable: '--font-montserrat',
-  weight: ['100', '300', '400', '500', '700', '900'],
+  weight: ['300', '400', '500', '600', '700', '900'],
 })
 
 const siteUrl =
@@ -23,14 +20,15 @@ const siteUrl =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'codiegos | Personal Portfolio',
-  description: 'Diego Sebastián Rivera | Full Stack Developer',
+  title: 'Diego Sebastián Rivera | Full Stack Developer',
+  description:
+    'Software engineer with 3 years of experience building management systems, dashboards and online stores with Next.js, TypeScript and PostgreSQL.',
   openGraph: {
     images: {
       url: '/images/opengraph-image.jpg',
       width: 1920,
       height: 934,
-      alt: 'Portfolio Cover Image',
+      alt: 'codiegos portfolio cover',
     },
   },
 }
@@ -50,6 +48,7 @@ export default function RootLayout({
     <html
       lang='en'
       className={`scroll-smooth! ${montserrat.variable}`}
+      data-scroll-behavior='smooth'
       suppressHydrationWarning
     >
       <body
@@ -57,12 +56,14 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <LanguageProvider>
-          <ActiveSectionContextProvider>
-            <MenuProvider>
-              {children}
-              <Toaster richColors theme='dark' />
-            </MenuProvider>
-          </ActiveSectionContextProvider>
+          <MotionProvider>
+            <ActiveSectionContextProvider>
+              <MenuProvider>
+                {children}
+                <Toaster richColors theme='dark' />
+              </MenuProvider>
+            </ActiveSectionContextProvider>
+          </MotionProvider>
         </LanguageProvider>
       </body>
     </html>

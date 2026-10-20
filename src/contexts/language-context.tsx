@@ -1,6 +1,10 @@
 'use client'
 
-import { translations, type Locale, type Translations } from '@/lib/translations'
+import {
+  translations,
+  type Locale,
+  type Translations,
+} from '@/lib/translations'
 import {
   createContext,
   Dispatch,

@@ -21,13 +21,13 @@ export function MyButton({
       onClick={onClick}
       {...props}
     >
-      <span className='absolute right-0 top-0 inline-block h-4 w-4 rounded bg-primary/20 transition-all duration-[375ms] ease-in-out group-hover:-mr-4 group-hover:-mt-4'>
-        <span className='absolute right-0 top-0 h-5 w-5 -translate-y-1/2 translate-x-1/2 rotate-45 bg-white' />
+      <span className='bg-primary/20 absolute top-0 right-0 inline-block h-4 w-4 rounded transition-all duration-[375ms] ease-in-out group-hover:-mt-4 group-hover:-mr-4'>
+        <span className='absolute top-0 right-0 h-5 w-5 translate-x-1/2 -translate-y-1/2 rotate-45 bg-white' />
       </span>
       <span
         className={`absolute bottom-0 left-0 h-full w-full -translate-x-full translate-y-full rounded-2xl transition-all duration-300 ease-in-out group-hover:mb-12 group-hover:translate-x-0 ${className}`}
       />
-      <span className='relative w-full whitespace-nowrap text-left font-semibold tracking-widest transition-colors duration-150 ease-in-out'>
+      <span className='relative w-full text-left font-semibold tracking-widest whitespace-nowrap transition-colors duration-150 ease-in-out'>
         {text}
       </span>
     </a>
