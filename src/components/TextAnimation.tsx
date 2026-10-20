@@ -4,7 +4,7 @@ interface TextAnimationProps {
 
 export function TextAnimation({ text }: TextAnimationProps) {
   return (
-    <svg viewBox='0 0 570 100' className='text-animation'>
+    <svg viewBox='0 0 570 100' className='text-animation' aria-hidden='true'>
       <symbol>
         <text
           id='text-animation-symbol'

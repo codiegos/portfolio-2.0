@@ -4,8 +4,7 @@
   --color-primary: #07101e;
   --color-secondary: #38bdf8;
   --color-tertiary: #050810;
-  --font-sans:
-    var(--font-montserrat), Arial;
+  --font-sans: var(--font-montserrat), Arial;
 }
 
 @utility container {
@@ -22,6 +21,23 @@
   html {
     color-scheme: dark;
   }
+
+  /* Tailwind v4 dejó los botones con cursor por defecto */
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: rgb(56 189 248 / 0.35);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .text-animation-letter {
+      animation: none;
+      stroke-dasharray: none;
+    }
+  }
 }
 
 /* Firefox */
@@ -37,12 +53,10 @@
 }
 
 *::-webkit-scrollbar-track {
-  margin-left: 275px;
   background: var(--primary);
 }
 
 *::-webkit-scrollbar-thumb {
-  margin-top: 200px;
   background-color: var(--secondary);
   border-radius: 14px;
 }

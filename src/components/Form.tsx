@@ -11,7 +11,8 @@ function Form() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const formData = new FormData(e.currentTarget)
+    const form = e.currentTarget
+    const formData = new FormData(form)
     const data = Object.fromEntries(formData.entries())
 
     try {
@@ -23,8 +24,9 @@ function Form() {
         },
         body: JSON.stringify(data),
       })
-      if (response.status === 200) {
+      if (response.ok) {
         toast.success(t.contact.sent)
+        form.reset()
       } else {
         toast.error(t.contact.error)
       }
@@ -41,7 +43,7 @@ function Form() {
   return (
     <form
       method='POST'
-      className='flex w-full flex-col gap-6 sm:text-lg'
+      className='flex h-full w-full flex-col gap-6 sm:text-lg'
       onSubmit={handleSubmit}
     >
       <div>
@@ -75,7 +77,7 @@ function Form() {
           required
         />
       </div>
-      <div>
+      <div className='flex flex-1 flex-col'>
         <label
           htmlFor='message'
           className='text-sm font-medium text-slate-200/80'
@@ -85,7 +87,7 @@ function Form() {
         <textarea
           id='message'
           name='message'
-          className={`${inputClass} resize-none`}
+          className={`${inputClass} min-h-28 flex-1 resize-none`}
           rows={4}
           placeholder={t.contact.placeholderMessage}
           maxLength={500}
@@ -94,7 +96,9 @@ function Form() {
       </div>
       <button
         type='submit'
-        className='group relative overflow-hidden rounded-xl bg-linear-to-r from-sky-600 to-indigo-700 p-3 px-6 font-semibold tracking-wide outline-none transition duration-200 hover:shadow-lg hover:shadow-sky-500/30 active:scale-95'
+        disabled={isLoading}
+        aria-busy={isLoading}
+        className='group relative overflow-hidden rounded-xl bg-linear-to-r from-sky-600 to-indigo-700 p-3 px-6 font-semibold tracking-wide transition duration-200 hover:shadow-lg hover:shadow-sky-500/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 active:scale-95 disabled:cursor-wait disabled:opacity-80'
       >
         {isLoading ? (
           <span className='flex flex-nowrap items-center justify-center gap-2'>
