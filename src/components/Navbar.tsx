@@ -77,10 +77,10 @@ function Navbar() {
           </button>
           <picture>
             <Image
-              src='/icon.png'
+              src='/logo.svg'
               width={36}
               height={36}
-              alt='logo'
+              alt='codiegos'
               className='absolute top-4 left-4 sm:hidden'
             />
           </picture>

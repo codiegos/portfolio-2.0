@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'Diego Sebastián Rivera | Full Stack Developer',
   description:
-    'Software engineer with 3 years of experience building management systems, dashboards and online stores with Next.js, TypeScript and PostgreSQL.',
+    'Software engineer with 3 years of experience building management systems, dashboards and e-commerce platforms, from database design to the user interface.',
   openGraph: {
     images: {
       url: '/images/opengraph-image.jpg',

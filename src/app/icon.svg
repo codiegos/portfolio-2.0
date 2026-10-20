@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10213a"/>
+      <stop offset="1" stop-color="#07101e"/>
+    </linearGradient>
+    <linearGradient id="cloud" x1="0" y1="132" x2="0" y2="306" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0f9ff"/>
+      <stop offset="1" stop-color="#7dd3fc"/>
+    </linearGradient>
+    <mask id="hem">
+      <rect width="512" height="512" fill="#fff"/>
+      <circle cx="151" cy="326" r="41" fill="#000"/>
+      <circle cx="221" cy="326" r="41" fill="#000"/>
+      <circle cx="291" cy="326" r="41" fill="#000"/>
+      <circle cx="361" cy="326" r="41" fill="#000"/>
+    </mask>
+  </defs>
+  <circle cx="256" cy="256" r="248" fill="url(#bg)"/>
+  <circle cx="256" cy="256" r="224" fill="none" stroke="#38bdf8" stroke-opacity=".4" stroke-width="5"/>
+  <g mask="url(#hem)" fill="url(#cloud)">
+    <circle cx="176" cy="264" r="60"/>
+    <circle cx="240" cy="212" r="80"/>
+    <circle cx="330" cy="240" r="66"/>
+    <rect x="116" y="264" width="140" height="42"/>
+    <rect x="256" y="240" width="140" height="66"/>
+  </g>
+  <g fill="none" stroke="#0c4a6e" stroke-opacity=".28" stroke-width="5" stroke-linecap="round">
+    <path d="M256 168 Q212 226 186 300"/>
+    <path d="M256 168 V300"/>
+    <path d="M256 168 Q300 226 326 300"/>
+  </g>
+  <path d="M256 306 V368 a21 21 0 0 1 -42 0" fill="none" stroke="#38bdf8" stroke-width="15" stroke-linecap="round"/>
+</svg>

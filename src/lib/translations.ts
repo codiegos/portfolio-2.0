@@ -15,8 +15,8 @@ export const translations = {
     },
     about: {
       title: 'About Me',
-      bio1: "I'm Diego Sebastián Rivera, a software engineer with 3 years of experience, mostly in web applications. I digitize operational processes and build management systems, dashboards and e-commerce, from the data model to the interface.",
-      bio2: "I've also shipped mobile apps for iOS and Android with React Native. Most of my work is in TypeScript: Next.js and NestJS for the code, PostgreSQL and Prisma for the data.",
+      bio1: "Software Engineer with 3 years of experience in application development, mainly web. I've worked on digitizing operational processes and building management systems, dashboards and e-commerce platforms, covering everything from database design to the user interface.",
+      bio2: 'I also have experience developing mobile apps for iOS and Android with React Native. I focus on building practical, maintainable solutions tailored to the needs of each project.',
       photoAlt:
         'Diego Sebastián Rivera on a mountain top, with the sky and hills behind him',
       cv: 'View CV',
@@ -112,8 +112,6 @@ export const translations = {
     },
     footer: {
       designed: 'Designed & developed by Diego Rivera',
-      stack:
-        'Built with Next.js, TypeScript, Tailwind CSS, Motion and Resend. Hosted on Vercel.',
     },
   },
   es: {
@@ -130,8 +128,8 @@ export const translations = {
     },
     about: {
       title: 'Sobre Mí',
-      bio1: 'Soy Diego Sebastián Rivera, ingeniero de software con 3 años de experiencia, sobre todo en aplicaciones web. Digitalizo procesos operativos y desarrollo sistemas de gestión, dashboards y comercio electrónico, del modelo de datos a la interfaz.',
-      bio2: 'También he hecho apps móviles para iOS y Android con React Native. Trabajo casi todo en TypeScript: Next.js y NestJS para el código, PostgreSQL y Prisma para los datos.',
+      bio1: 'Ingeniero de Software con 3 años de experiencia en desarrollo de aplicaciones, principalmente web. He trabajado en la digitalización de procesos operativos y en la construcción de sistemas de gestión, dashboards y plataformas de comercio electrónico, abarcando desde el diseño de bases de datos hasta la interfaz de usuario.',
+      bio2: 'También cuento con experiencia en desarrollo de aplicaciones móviles para iOS y Android con React Native. Me enfoco en crear soluciones prácticas, mantenibles y adaptadas a las necesidades de cada proyecto.',
       photoAlt:
         'Diego Sebastián Rivera en la cima de un cerro, con el cielo y los cerros de fondo',
       cv: 'Ver CV',
@@ -227,8 +225,6 @@ export const translations = {
     },
     footer: {
       designed: 'Diseñado y desarrollado por Diego Rivera',
-      stack:
-        'Hecho con Next.js, TypeScript, Tailwind CSS, Motion y Resend. Desplegado en Vercel.',
     },
   },
 }
